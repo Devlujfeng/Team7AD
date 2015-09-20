@@ -160,15 +160,16 @@
          </div> 
             </div>    
      </form>
-        <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+  <script>
+      $(function () {
+          console.log(window.innerHeight);
+          var height = $("#prelayer").height() + 500;
+          console.log(height);
+          document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+          document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+      });
+    </script>
+
 <script id="print">  
       function PrintGridView() {  
       // 打开一个新网页  

@@ -180,7 +180,7 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     
-			<div class="tm-right-inner-container">
+			<div class="tm-right-inner-container" id="prelayer">
                 <asp:Button ID="btn_checkLowInventory" Enabled="false" CssClass="btn btn-sm btn-default" runat="server" Text="Low Balance Item" />
                 &nbsp
                 <asp:Button ID="btn_reorder" CssClass="btn btn-sm btn-info" runat="server" Text="Reoder" OnClick="btn_reorder_Click" />
@@ -209,14 +209,15 @@
         </div>	
 		<!-- right section -->
     </form>
-      <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
 </body>
 </html>

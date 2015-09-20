@@ -199,7 +199,7 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     
-			<div class="tm-right-inner-container">
+			<div class="tm-right-inner-container" id="prelayer">
                 <div class="auto-style1">
                     &nbsp;&nbsp;&nbsp;
                     <table class="table-products">
@@ -251,15 +251,16 @@
         </div>	
 		<!-- right section -->
     </form>
-      <script>
+<script>
     $(function () {
         console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+        var height = $("#prelayer").height() + 500;
+        console.log(height);
+        document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+        document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+    });
+    </script>
+
      <script>
          function PrintGridView() {
              // 打开一个新网页
