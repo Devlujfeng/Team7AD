@@ -45,9 +45,11 @@ namespace ClassLibraryBL.EntityFacade
             int receiveMax = l.Max();
 
             var data2 = from r in lg.requisitions
+                        join d in lg.departments on r.departmentId equals d.departmentId
                         where r.requisitionId >= receive
                         where r.requisitionId <= receiveMax
                         where r.status == "PendingForOrder"
+                        where d.deptName == selectedValue
                         select r;
             return data2.ToList();
             

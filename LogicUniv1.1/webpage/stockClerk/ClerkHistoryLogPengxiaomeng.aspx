@@ -72,59 +72,18 @@
 </head>
 
 <body>
-    <header class="navbar navbar-inverse" role="banner">
+      <header class="navbar navbar-inverse" role="banner">
         <ul class="nav navbar-nav pull-right hidden-xs">
-            <li class="hidden-xs hidden-sm">
-                <input class="search" type="text" />
-            </li>
-            <li class="notification-dropdown hidden-xs hidden-sm">
-                <a href="#" class="trigger">
-                    <i class="icon-warning-sign"></i>
-                    <span class="count">8</span>
-                </a>
-                <div class="pop-dialog">
-                    <div class="pointer right">
-                        <div class="arrow"></div>
-                        <div class="arrow_border"></div>
-                    </div>
-                    <div class="body">
-                        <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
-                        <div class="notifications">
-                            <h3>你有6条信息</h3>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> 新用户注册
-                                <span class="time"><i class="icon-time"></i> 13分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> 新用户注册
-                                <span class="time"><i class="icon-time"></i> 18分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-envelope-alt"></i> 新消息来自Alejandra
-                                <span class="time"><i class="icon-time"></i> 28分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> 新用户注册
-                                <span class="time"><i class="icon-time"></i> 49分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-download-alt"></i> 新订单
-                                <span class="time"><i class="icon-time"></i> 1天前.</span>
-                            </a>
-                            <div class="footer">
-                                <a href="#" class="logout">查看所有消息</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">
-                    My Account
+                    Your Account
                     <b class="caret"></b>
                 </a>
+                <ul class="dropdown-menu">
+                    <li><a href="personal-info.html">Personal Info</a></li>
+                    <li><a href="#">Setting</a></li>
+                </ul>
             </li>
-                
             <li class="settings hidden-xs hidden-sm">
 <a href="../LogoutPage.aspx" role="button">
                     <i class="icon-share-alt"></i>
@@ -166,7 +125,6 @@
                 <asp:ListItem>View By Department</asp:ListItem>
                 <asp:ListItem Selected="True">View By Item</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:1%" OnClick="HistoryLog1_Click" CssClass="btn btn-info" Height="30px" Width="158px" />            
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
             <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" CssClass="btn btn-info" Height="30px" Width="164px" />
             <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="299px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">

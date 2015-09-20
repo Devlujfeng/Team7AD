@@ -104,6 +104,7 @@
             <%-- BootStrap popup wind --%>
             <div class="tm-right-inner-container" id="prelayer">
                   <br />
+                <asp:Label ID="Label5" runat="server" ForeColor="Red"></asp:Label>
                  <asp:GridView ID="GridView1" runat="server" AllowPaging="True"  OnPageIndexChanging="GridView1_PageIndexChanging" Width="694px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="table table-striped table-bordered table-condensed">
                      <Columns>
                          <asp:BoundField DataField="Itemdescription" HeaderText="Itemdescription" />

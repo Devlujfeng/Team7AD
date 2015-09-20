@@ -83,7 +83,7 @@ namespace ClassLibraryBL.EntityFacade
                        select x2).First();
 
 
-            if (totalItemQuantity >= tiq.balance)
+            if (totalItemQuantity <= tiq.balance)
             {
                 foreach (requisition req in findRelevantRequistion)
                 {
@@ -130,18 +130,18 @@ namespace ClassLibraryBL.EntityFacade
 
 
                         //get particular requistion item list
-                  List<itemValidate> itemidlistAvailable = new List<itemValidate>();
-            var n = (from x1 in ctx.requisitions
-                     from y in ctx.items
-                     from z in ctx.requsiiton_item
-                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == req.requisitionId
-                     select new itemValidate
-                     {
-                         Itemid = z.itemId,
-                         RequestQty = z.requestQty,
-                         StockBalance = y.balance,
-                         Itemreorderlevel = y.reorderlevel
-                     }).ToList();
+                        List<itemValidate> itemidlistAvailable = new List<itemValidate>();
+                        var n = (from x1 in ctx.requisitions
+                                 from y in ctx.items
+                                 from z in ctx.requsiiton_item
+                                 where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == req.requisitionId
+                                 select new itemValidate
+                                 {
+                                     Itemid = z.itemId,
+                                     RequestQty = z.requestQty,
+                                     StockBalance = y.balance,
+                                     Itemreorderlevel = y.reorderlevel
+                                 }).ToList();
                         itemidlistAvailable = n;
                         //get particular requistion item list
 
@@ -159,25 +159,42 @@ namespace ClassLibraryBL.EntityFacade
                         ///update disbursement list 
 
                         //add disbursement
-
+                        var t3 = (from x1 in ctx.items
+                                  from y1 in ctx.requisitions
+                                  from z1 in ctx.requsiiton_item
+                                  where x1.itemId == x.itemId && x1.flag == "needReorderSoon" && y1.requisitionId == req.requisitionId && x1.itemId == z1.itemId && y1.requisitionId == z1.requisitionId
+                                  select z1.requestQty).First();
+                        var u = (from x1 in ctx.items
+                                 where x1.itemId == x.itemId
+                                 select x1).First();
+                        u.balance = u.balance - t3;
 
                     }
-                    var t3 = (from x1 in ctx.items
-                              from y1 in ctx.requisitions
-                              from z1 in ctx.requsiiton_item
-                              where x1.itemId == x.itemId && x1.flag == "needReorderSoon" && y1.requisitionId == req.requisitionId && x1.itemId == z1.itemId && y1.requisitionId == z1.requisitionId
-                              select z1.requestQty).First();
-                    var u = (from x1 in ctx.items
-                             where x1.itemId == x.itemId
-                             select x1).First();
-                    u.balance = u.balance - t3;
+                    else
+                    {
+                        var t3 = (from x1 in ctx.items
+                                  from y1 in ctx.requisitions
+                                  from z1 in ctx.requsiiton_item
+                                  where x1.itemId == x.itemId && x1.flag == "needReorderSoon" && y1.requisitionId == req.requisitionId && x1.itemId == z1.itemId && y1.requisitionId == z1.requisitionId
+                                  select z1.requestQty).First();
+                        var u = (from x1 in ctx.items
+                                 where x1.itemId == x.itemId
+                                 select x1).First();
+                        u.balance = u.balance - t3;
+                    }
+
                 }
                 var m3 = (from z1 in ctx.items
                           where z1.itemId == x.itemId
                           select z1).First();
                 m3.flag = "NULL";
-                ctx.SaveChanges();
+                
                  }
+            var u1 = (from x1 in ctx.items
+                     where x1.itemId == x.itemId
+                     select x1).First();
+            u1.balance = u1.balance +1;
+            ctx.SaveChanges();
             }
         }
 

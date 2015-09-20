@@ -66,9 +66,9 @@ namespace LogicUniv1._1.webpage.stockSupervisor
             int MonthC;
             DataTable dt = new DataTable();
             dt.Columns.Add("Category");
-            dt.Columns.Add("QtyMonthA");
-            dt.Columns.Add("QtyMonthB");
-            dt.Columns.Add("QtyMonthC");
+            dt.Columns.Add("Month" + DropDownListMonthA.SelectedItem.Value);
+            dt.Columns.Add("Month" + DropDownListMonthB.SelectedItem.Value);
+            dt.Columns.Add("Month" + DropDownListMonthC.SelectedItem.Value);
             List<RequestThreeMonthsEntity> rtmeListMonthA = rtef.GetRequestThreeMonthsEntity(mA, department);
             List<RequestThreeMonthsEntity> rtmeListMonthB = rtef.GetRequestThreeMonthsEntity(mB, department);
             List<RequestThreeMonthsEntity> rtmeListMonthC = rtef.GetRequestThreeMonthsEntity(mC, department);

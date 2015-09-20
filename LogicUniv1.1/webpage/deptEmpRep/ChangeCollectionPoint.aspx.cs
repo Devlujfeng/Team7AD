@@ -41,7 +41,7 @@ namespace LogicUniv1._1.webpage.deptEmpRep
             }
             catch (Exception ex)
             {
-                Response.Redirect("HeadHome.aspx");
+                
             }
             }
 

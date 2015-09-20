@@ -36,10 +36,13 @@ namespace LogicUniv1._1.webpage.stockClerk
         //get the value of specified row and column.
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName != "Page") 
+            { 
             String s = GridView1.Rows[Convert.ToInt16(e.CommandArgument)].Cells[1].Text;
             Session["passing"] = s;
             // the show entire items for respective row 
             Response.Redirect("CurrentDisbursementDetailItem.aspx");
+            }
 
         }
 

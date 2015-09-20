@@ -449,7 +449,6 @@
     <Content Include="webpage\Login\js\redirect.js" />
     <Content Include="webpage\Login\login.aspx" />
     <Content Include="webpage\LogoutPage.aspx" />
-    <Content Include="webpage\personal\myprofile.aspx" />
     <Content Include="webpage\Security.aspx" />
     <Content Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx" />
     <Content Include="webpage\stockClerk\CheckLowBalanceInventory.aspx" />
@@ -754,13 +753,6 @@
     <Compile Include="webpage\LogoutPage.aspx.designer.cs">
       <DependentUpon>LogoutPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webpage\personal\myprofile.aspx.cs">
-      <DependentUpon>myprofile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="webpage\personal\myprofile.aspx.designer.cs">
-      <DependentUpon>myprofile.aspx</DependentUpon>
-    </Compile>
     <Compile Include="webpage\Security.aspx.cs">
       <DependentUpon>Security.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -969,6 +961,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\qrcode\" />
+    <Folder Include="webpage\personal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
