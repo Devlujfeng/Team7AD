@@ -263,5 +263,25 @@ namespace ClassLibraryBL.EntityFacade
                             restinfo.Add(data.ToShortDateString());
                             return restinfo;
                         }
+
+                        public List<RequisitionMix> getCurrentList3(string deptId)
+                        {
+                            var data = from f in cntx.disbursements
+                                       join d in cntx.departments on f.departmentId equals d.departmentId
+                                       join di in cntx.disbursement_item on f.disbursementId equals di.disbursementId
+                                       join i in cntx.items on di.itemId equals i.itemId
+                                       join c in cntx.categories on i.categoryId equals c.categoryId
+                                       where d.departmentId == deptId && f.status == "WaitingCollection"
+                                       select new RequisitionMix
+                                       {
+                                           itemID = i.itemId,
+                                           Category = c.categoryName,
+                                           Itemname = i.description,
+                                           amount = di.collectQty,
+                                           Unit = i.unit,
+                                           Bin = i.binNumber
+                                       };
+                            return data.ToList();
+                        }
     }
 }

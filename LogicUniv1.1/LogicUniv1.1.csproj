@@ -272,6 +272,7 @@
     <Content Include="webpage\DeptHead\ChangeRep.aspx" />
     <Content Include="webpage\DeptHead\DelegateAuthority.aspx" />
     <Content Include="webpage\DeptHead\HeadHome.aspx" />
+    <Content Include="webpage\DeptHead\myprofile.aspx" />
     <Content Include="webpage\DeptHead\PreviousRequisition.aspx" />
     <Content Include="webpage\DeptHead\RequisitionDetails.aspx" />
     <Content Include="webpage\font\fontawesome-webfont.svg" />
@@ -725,6 +726,13 @@
     <Compile Include="webpage\DeptHead\HeadHome.aspx.designer.cs">
       <DependentUpon>HeadHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webpage\DeptHead\myprofile.aspx.cs">
+      <DependentUpon>myprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\myprofile.aspx.designer.cs">
+      <DependentUpon>myprofile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.cs">
       <DependentUpon>PreviousRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -961,7 +969,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\qrcode\" />
-    <Folder Include="webpage\personal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

@@ -68,6 +68,10 @@ namespace ClassLibraryBL.Controller.stockClerk
             }
             return deList;
         }
+        public List<RequisitionMix> getCurrentList3(String id)
+        {
+            return disF.getCurrentList3(id);
+        }
 
 
     }

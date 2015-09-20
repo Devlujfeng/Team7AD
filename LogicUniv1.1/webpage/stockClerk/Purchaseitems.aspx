@@ -49,8 +49,8 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personal Information</a></li>
-                <li><a href="personal-info.html">Setting</a></li>
+                    <li><a href="#">Personal Information</a></li>
+                <li><a href="#">Setting</a></li>
                 </ul>
             </li>
             <li class="settings hidden-xs hidden-sm">
@@ -168,7 +168,7 @@
   <script>
       $(function () {
           console.log(window.innerHeight);
-          var height = $("#prelayer").height() + 500;
+          var height = $("#prelayer").height() + 1000;
           console.log(height);
           document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
           document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");

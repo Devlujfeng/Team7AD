@@ -79,6 +79,30 @@ namespace ClassLibraryBL.EntityFacade
                        };
             return data.ToList();
         }
+        public List<itemEntity> getItemByName2(string name, int sId)
+        {
+            var data = from f in cntx.items
+                       join c in cntx.categories on f.categoryId equals c.categoryId
+                       join g in cntx.item_supplier on f.itemId equals g.itemId
+                       join k in cntx.suppliers on g.supplierId equals k.supplierId
+                       where f.description.Contains(name)
+                       where k.supplierId == sId
+                       select new itemEntity
+                       {
+                           itemId = f.itemId,
+                           categoryName = c.categoryName,
+                           description = f.description,
+                           balance = f.balance,
+                           unit = f.unit,
+                           reorderlevel = f.reorderlevel,
+                           reorderQty = f.reorderQty,
+                           companyName = k.compName,
+                           binNumber = f.binNumber,
+
+                           status = f.status
+                       };
+            return data.ToList();
+        }
 
     }
 }

@@ -47,6 +47,9 @@
             height: 17px;
             width: 91px;
         }
+        .auto-style4 {
+            width: 259px;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +63,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personal Info</a></li>
+                    <li><a href="#">Personal Info</a></li>
                     <li><a href="#">Setting</a></li>
                   
                 </ul>
@@ -82,10 +85,10 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-                  <li><a href="SSHome.aspx" >Home</a></li>
-				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
-				  <li><a href="TrendForSupplier.aspx"class="active"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
-				  <li><a href="ReportOrder.aspx" ><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+                  				  <li><a href="SSHome.aspx" >Home</a></li>
+				  <li><a href="CompareThreeMonths.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Requisition Analysis</a></li>
+				  <li><a href="TrendForSupplier.aspx"  class="active"><i class="fa fa-send-o fa-medium"></i>Department Requisition Trend</a></li>
+				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Inventory Reorder Chart</a></li>
 				</ul>
 			</div>
 
@@ -187,7 +190,7 @@
                             <asp:Label ID="Label5" runat="server" Text="To:"></asp:Label>
 
                        </td>
-                       <td>
+                       <td class="auto-style4">
                            <asp:DropDownList ID="DropDownListMonthTo" runat="server">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
@@ -202,7 +205,7 @@
                                 <asp:ListItem>11</asp:ListItem>
                                 <asp:ListItem>12</asp:ListItem>
                            </asp:DropDownList>
-                           <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="DropDownListMonthFrom" ControlToValidate="DropDownListMonthTo" Display="Dynamic" ErrorMessage="The second month should greater than the first month." Operator="GreaterThanEqual" ForeColor="Red"></asp:CompareValidator>
+                           &nbsp;<asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
                        </td>
                    </tr>
                </table>

@@ -9,6 +9,7 @@ using ClassLibraryBL.Controller.stockClerk;
 using ClassLibraryBL.Entities;
 using ClassLibraryBL;
 using ClassLibraryBL.Controller.deptEmp;
+using System.IO;
 
 namespace WcfService
 {
@@ -86,6 +87,10 @@ namespace WcfService
         {
             return vdlc.getCurrentList2(v);
         }
+        public List<RequisitionMix> getCurrentDisbursementByDepartmentId(string id)
+        {
+            return vdlc.getCurrentList3(id);
+        }
 
         //public List<disbursementEntity> getCurrentDisbursementByDepartment(string v)
         //{
@@ -158,9 +163,15 @@ namespace WcfService
             
         }
 
-        public bool addDiscrepancy(List<discrepancyDetailEntityMobile> ddem, User u)
+        //public bool addDiscrepancy(List<discrepancyDetailEntityMobile> ddem, string userId)
+        //{
+        //    pdc.confirmOperation2(ddem, userId);
+        //    return true;
+        //}
+
+        public bool addDiscrepancy(string description, string type, string remark, string amount, string userId)
         {
-            pdc.confirmOperation2(ddem, u);
+            pdc.confirmOperation2(description,type,remark,amount, userId);
             return true;
         }
 
@@ -173,10 +184,22 @@ namespace WcfService
         }
 
         //get item by name
-        public List<itemEntity> getItemByName(string name) 
+        public List<itemEntity> getItemByName(string name)
         {
             return vic.getItemByName(name);
 
+        }
+        public List<itemEntity> getItemByName2(string name, string supplierId) 
+        {
+            return vic.getItemByName2(name,supplierId);
+
+        }
+
+        public Stream GetImage()
+        {
+            FileStream fs = File.OpenRead(@"D:\a.jpg");
+            WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
+            return fs;
         }
     }
 }

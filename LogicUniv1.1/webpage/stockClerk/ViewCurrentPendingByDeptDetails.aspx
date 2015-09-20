@@ -47,7 +47,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personal Info</a></li>
+                    <li><a href="#">Personal Info</a></li>
                     <li><a href="#">Setting</a></li>
                 </ul>
             </li>
@@ -110,13 +110,11 @@
      <script>
          $(function () {
              console.log(window.innerHeight);
-             var height = $("#prelayer").height() + 500;
+             var height = $("#prelayer").height() + 1000;
              console.log(height);
              document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
              document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
          });
     </script>
-
-
 </body>
 </html>

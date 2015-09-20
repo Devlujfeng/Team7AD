@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.IO;
 
 namespace WcfService
 {
@@ -25,9 +26,9 @@ namespace WcfService
         //start 
         //requisition
         [OperationContract]
-        [WebInvoke(Method="GET",
-            BodyStyle=WebMessageBodyStyle.Bare, 
-            UriTemplate = "/getAllRequisition", 
+        [WebInvoke(Method = "GET",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/getAllRequisition",
             ResponseFormat = WebMessageFormat.Json)]
         List<requisitionEntity> getAllRequisition();
 
@@ -60,7 +61,7 @@ namespace WcfService
             ResponseFormat = WebMessageFormat.Json)]
         List<RequisitionDetails> getRequisitionDetail(string rid);
 
-       //retrieve form
+        //retrieve form
         [OperationContract]
         [WebInvoke(Method = "GET",
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -68,7 +69,7 @@ namespace WcfService
             ResponseFormat = WebMessageFormat.Json)]
         List<RequisitionMix> getCurrentWeekRetrieveFormByItem();
 
-       //disbursement list by department
+        //disbursement list by department
         [OperationContract]
         [WebInvoke(Method = "GET",
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -76,13 +77,21 @@ namespace WcfService
             ResponseFormat = WebMessageFormat.Json)]
         List<RequisitionMix> getCurrentDisbursementByDepartment(string v);
 
+        //disbursement list by department
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/getCurrentDisbursementByDepartmentId/{id}",
+            ResponseFormat = WebMessageFormat.Json)]
+        List<RequisitionMix> getCurrentDisbursementByDepartmentId(string id);
+
         //[OperationContract]
         //[WebInvoke(Method = "GET",
         //    BodyStyle = WebMessageBodyStyle.Bare,
         //    UriTemplate = "/getCurrentDisbursementByDepartmentDetail/{disbursementId}",
         //    ResponseFormat = WebMessageFormat.Json)]
         //List<disbursementEntity> getCurrentDisbursementByDepartmentDetail(string disbursementId);
-        
+
         //department name list
         [OperationContract]
         [WebInvoke(Method = "GET",
@@ -137,9 +146,9 @@ namespace WcfService
         [OperationContract]
         [WebInvoke(Method = "GET",
             BodyStyle = WebMessageBodyStyle.Bare,
-            UriTemplate = "/addPurchaseItem/{itemId}/{supplierid}/{purchaseid}/{qty}",
+            UriTemplate = "/addPurchaseItem/{itemid}/{supplierid}/{purchaseid}/{qty}",
             ResponseFormat = WebMessageFormat.Json)]
-        bool addPurchaseItem(string itemid, string supplierid, string purchaseid,string qty);
+        bool addPurchaseItem(string itemid, string supplierid, string purchaseid, string qty);
 
         //////////discrepancy//////////////////////
         [OperationContract]
@@ -157,19 +166,30 @@ namespace WcfService
         List<discrepancyDetailEntityMobile> discrepancyListHistoryDetail(string discrepancyId);
 
 
+        //[OperationContract]
+        //[WebInvoke(Method = "POST",
+        //    BodyStyle = WebMessageBodyStyle.Wrapped,
+        //    UriTemplate = "/addDiscrepancy/{userId}",
+        //    ResponseFormat = WebMessageFormat.Json,
+        //    RequestFormat = WebMessageFormat.Json
+        //    )]
+        //bool addDiscrepancy(List<discrepancyDetailEntityMobile> ddem, string userId);
+
+
+
         [OperationContract]
-        [WebInvoke(Method = "POST",
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            UriTemplate = "/addDiscrepancy",
+        [WebInvoke(Method = "GET",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/addDiscrepancy/{userId}/{description}/{type}/{remark}/{amount}",
             ResponseFormat = WebMessageFormat.Json,
             RequestFormat = WebMessageFormat.Json
             )]
-        bool addDiscrepancy(List<discrepancyDetailEntityMobile> ddem, User u);
+        bool addDiscrepancy(string description, string type, string remark, string amount, string userId);
 
-        /////get item by id
+        /////get item by id 
         [OperationContract]
         [WebInvoke(Method = "GET",
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/getItemById/{id}",
             ResponseFormat = WebMessageFormat.Json
             )]
@@ -178,15 +198,27 @@ namespace WcfService
         //get item by name
         [OperationContract]
         [WebInvoke(Method = "GET",
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/getItemByName/{name}",
             ResponseFormat = WebMessageFormat.Json
             )]
         List<itemEntity> getItemByName(string name);
-          
 
-       // end 
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/getItemByName2/{name}/{supplierId}",
+            ResponseFormat = WebMessageFormat.Json
+            )]
+        List<itemEntity> getItemByName2(string name, string supplierId);
 
+
+
+
+        // end  by tianhang
+        [OperationContract]
+        [WebGet(UriTemplate = "GetImage", RequestFormat = WebMessageFormat.Xml, ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        Stream GetImage();
         // TODO: Add your service operations here
     }
 
@@ -201,6 +233,7 @@ namespace WcfService
         [DataMember]
         public bool BoolValue
         {
+
             get { return boolValue; }
             set { boolValue = value; }
         }

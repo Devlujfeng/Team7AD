@@ -71,50 +71,56 @@ namespace LogicUniv1._1.webpage.stockSupervisor
             List<TrendForSupplierEntity> list = new List<TrendForSupplierEntity>();
 
             // Test Chart
-          
+
             /*if (DropDownListDepartment == null || DropDownListCategory == null || DropDownListType == null)
             {
                 Label7.Text = "please fill in all the dropboxes.";
             }*/
-
-            if (type == "Quantity")
+            if (fromMonth <= toMonth)
             {
-                dt.Columns.Add("Month");
-                dt.Columns.Add("Quantity");
-                for (int m = 1; m >= fromMonth && m <= toMonth; m++)
+                if (type == "Quantity")
                 {
-                    list = tfsf.GetPrice(department, categary, m);
-                    Quantity = GetQtyByMonth(list);
-                    dt.Rows.Add(new object[] { m, Quantity });
+                    dt.Columns.Add("Month");
+                    dt.Columns.Add("Quantity");
+                    // for (int m = 1; m >= fromMonth && m <= toMonth; m++)
+                    for (int m = fromMonth; m <= toMonth; m++)
+                    {
+                        list = tfsf.GetPrice(department, categary, m);
+                        Quantity = GetQtyByMonth(list);
+                        dt.Rows.Add(new object[] { m, Quantity });
+                    }
+                    Chart1.Series[0].XValueMember = dt.Columns[0].ToString();
+                    Chart1.Series[0].YValueMembers = dt.Columns[1].ToString();
                 }
-                Chart1.Series[0].XValueMember = dt.Columns[0].ToString();
-                Chart1.Series[0].YValueMembers = dt.Columns[1].ToString();
-            }
-            else
-            {
-                dt.Columns.Add("Month");
-                dt.Columns.Add("CategoryCost");
-                for (int m = 1; m >= fromMonth && m <= toMonth; m++)
+                else
                 {
-                    list = tfsf.GetPrice(department, categary, m);
-                    CategoryCost = GetCategoryCostByMonth(list);
-                    dt.Rows.Add(new object[] { m, CategoryCost });
+                    dt.Columns.Add("Month");
+                    dt.Columns.Add("CategoryCost");
+                    //for (int m = 1; m >= fromMonth && m <= toMonth; m++)
+                    for (int m = fromMonth; m <= toMonth; m++)
+                    {
+                        list = tfsf.GetPrice(department, categary, m);
+                        CategoryCost = GetCategoryCostByMonth(list);
+                        dt.Rows.Add(new object[] { m, CategoryCost });
+                    }
+                    Chart1.Series[0].XValueMember = dt.Columns[0].ToString();
+                    Chart1.Series[0].YValueMembers = dt.Columns[1].ToString();
                 }
-                Chart1.Series[0].XValueMember = dt.Columns[0].ToString();
-                Chart1.Series[0].YValueMembers = dt.Columns[1].ToString();
+                Chart1.Series[0].Name = type;
+                Chart1.Series[0].LegendText = type;
+
+                // GridView bind
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+                // Chart bind
+                Chart1.DataSource = dt;
+                GridView1.DataBind();
+
             }
-            Chart1.Series[0].Name = type;
-            Chart1.Series[0].LegendText = type;
-
-            // GridView bind
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-            // Chart bind
-            Chart1.DataSource = dt;
-            GridView1.DataBind();
-
+            else {
+                Label8.Text = "Please choose correct format.";
+            }
         }
-
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

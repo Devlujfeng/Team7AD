@@ -73,7 +73,7 @@
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
-        <ul class="nav navbar-nav pull-right hidden-xs">
+            <ul class="nav navbar-nav pull-right hidden-xs">
             <li class="notification-dropdown hidden-xs hidden-sm">
                 <a href="#" class="trigger">
                     <i class="icon-warning-sign"></i>
@@ -117,7 +117,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personnal Info</a></li>
+                    <li><a href="myprofile.aspx">Personnal Info</a></li>
                     <li><a href="#">Settings</a></li>
                 </ul>
             </li>

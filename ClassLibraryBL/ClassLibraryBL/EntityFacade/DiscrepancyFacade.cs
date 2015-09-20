@@ -250,21 +250,12 @@ namespace ClassLibraryBL.EntityFacade
             return data.ToList();
         }
 
-        public void confirmOperation2(List<discrepancyDetailEntityMobile> ddem, User u)
+        public void confirmOperation2(string description, string type, string remark, int amount, string userId)
         {
-            for (int i = 0; i < ddem.Count; i++)
-            {
 
-                String category = ddem[i].categoryName;
-                String description = ddem[i].description;
-                int amount = ddem[i].balance;
-                String unit = ddem[i].unit;
-                String type = ddem[i].type;
-                String remark = ddem[i].Remark;
-                DateTime reportdate = DateTime.Now;
-                addToDiscrepancyTable(description, reportdate, remark, u.UserId, 50, amount, type);
 
-            }
+            DateTime reportdate = DateTime.Now;
+            addToDiscrepancyTable(description, reportdate, remark, userId, 50, amount, type);
         }
 
 

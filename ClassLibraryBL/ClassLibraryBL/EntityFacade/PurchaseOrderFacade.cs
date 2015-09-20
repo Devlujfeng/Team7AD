@@ -193,7 +193,7 @@ namespace ClassLibraryBL.EntityFacade
             var u1 = (from x1 in ctx.items
                      where x1.itemId == x.itemId
                      select x1).First();
-            u1.balance = u1.balance +1;
+            u1.balance = u1.balance;
             ctx.SaveChanges();
             }
         }

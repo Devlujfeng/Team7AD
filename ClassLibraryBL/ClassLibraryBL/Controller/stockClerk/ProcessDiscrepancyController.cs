@@ -61,9 +61,10 @@ namespace ClassLibraryBL.Controller.stockClerk
             return df.getDiscrepanyDetail2(id);
         }
 
-        public void confirmOperation2(List<discrepancyDetailEntityMobile> ddem, User u)
+        public void confirmOperation2(string description, string type, string remark, string amount, string userId)
         {
-            df.confirmOperation2(ddem, u);
+            int a = Convert.ToInt32(amount);
+            df.confirmOperation2(description, type, remark, a, userId);
         }
     }
 }

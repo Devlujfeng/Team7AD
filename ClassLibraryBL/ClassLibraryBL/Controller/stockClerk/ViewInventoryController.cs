@@ -33,5 +33,10 @@ namespace ClassLibraryBL.Controller.stockClerk
         {
             return inventoryFacade.getItemByName(name);
         }
+        public List<itemEntity> getItemByName2(string name, string supplierId)
+        {
+            int sId = Convert.ToInt32(supplierId);
+            return inventoryFacade.getItemByName2(name, sId);
+        }
     }
 }

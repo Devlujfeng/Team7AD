@@ -439,7 +439,7 @@ namespace ClassLibraryBL.EntityFacade
             DateTime monday = DateTime.Now.AddDays(dayspan);
             var data = from r in luse.requisitions
                        join d in luse.departments on r.departmentId equals d.departmentId
-                       where r.status == "PendingForOrder"
+                       where r.status == "PendingForOrder" || r.status=="Pending"
                        where r.requestDate >= monday
                        select new requisitionEntity
                        {

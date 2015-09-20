@@ -78,7 +78,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personal Info</a></li>
+                    <li><a href="#">Personal Info</a></li>
                     <li><a href="#">Setting</a></li>
                 </ul>
             </li>

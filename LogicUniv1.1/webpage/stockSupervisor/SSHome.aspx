@@ -49,7 +49,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personal Info</a></li>
+                    <li><a href="#">Personal Info</a></li>
                     <li><a href="#">Setting</a></li>
 
                 </ul>
@@ -71,10 +71,10 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-                  <li><a href="SSHome.aspx" class="active">Home</a></li>
-				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
-				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
-				  <li><a href="ReportOrder.aspx" ><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+                				  <li><a href="SSHome.aspx"  class="active">Home</a></li>
+				  <li><a href="CompareThreeMonths.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Requisition Analysis</a></li>
+				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Department Requisition Trend</a></li>
+				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Inventory Reorder Chart</a></li>
 				</ul>
 			</div>
 
